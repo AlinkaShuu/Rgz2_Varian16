@@ -8,15 +8,15 @@
 			$value1 = '';
 			$value2 = '';
 			$value3 = '';
-				if (isset($_GET['value1'])) {
-					$value1 = $_GET['value1'];
-				} 
-				if (isset($_GET['value2'])) {
-					$value2 = $_GET['value2'];
-				} 
-				if (isset($_GET['value3'])) {
-					$value3 = $_GET['value3'];
-				} 
+			if (isset($_GET['value1'])) {
+				$value1 = $_GET['value1'];
+			} 
+			if (isset($_GET['value2'])) {
+				$value2 = $_GET['value2'];
+			} 
+			if (isset($_GET['value3'])) {
+				$value3 = $_GET['value3'];
+			} 
 			?>
 		<form method="GET" action="index.php">
 			<h2>Введите данные комнаты</h2>
@@ -33,21 +33,19 @@
 					else{
 						$s1 = number_format($value1 * $value2, 2, ',', ' ');
 						$s2 = number_format($value1 * $value3, 2, ',', ' ');
-						
-							if ($s1 > $s2) {
-								$result = $s1;
-								$comment='под номером 3,4!';
-							} else if ($s2 > $s1) {
-								$result = $s2;
-								$comment='под номером 1,2!';
-							}
-							else {
-								$result = $s1; 
-								$comment='Комната квадратная, все стены равны!';
-							}
-							echo "<p>"."Площадь наибольшей стены = ".htmlspecialchars($result)."  "." м.кв. "."  ".htmlspecialchars($comment)."</p>";
-							
+						if ($s1 > $s2) {
+							$result = $s1;
+							$comment='под номером 3,4!';
+						} else if ($s2 > $s1) {
+							$result = $s2;
+							$comment='под номером 1,2!';
 						}
+						else {
+							$result = $s1; 
+							$comment='Комната квадратная, все стены равны!';
+						}
+						echo "<p>"."Площадь наибольшей стены = ".htmlspecialchars($result)."  "." м.кв. "."  ".htmlspecialchars($comment)."</p>";
+					}
 				}
 				else if ($value1 != '' || $value2 != '' || $value3 != '') {
 					echo "Не все поля заполнены!";
